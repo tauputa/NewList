@@ -10,7 +10,7 @@ project {
 
 project {                   
     description = "Maven 3.6 java project forked from anewtodolist"
-    buildType(NewList_Build) 
+    buildType(AlistairTestProject_NewList_Build) 
 }
 
 
