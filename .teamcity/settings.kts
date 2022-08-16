@@ -18,6 +18,10 @@ project {
 
     sequential{
         buildType(CleanTest)
+	parallel {
+		buildType(UnitTest)
+		buildType(IntegrationTest)
+	}
         buildType(CleanPackage)
     }
 }
@@ -91,8 +95,8 @@ object CleanPackage : BuildType({
         }
     }
 
-    triggers {
-        vcs {
-        }
-    }
+//    triggers {
+//        vcs {
+//       }
+//    }
 })
