@@ -9,12 +9,12 @@ version = "2021.1"
 
 project {                   
     description = "Maven 3.6 java project forked from anewtodolist"
-    buildType(Sausage_Meat) 
+    buildType(CleanTest) 
 }
 
-object Sausage_Meat : BuildType({    
-    id("Build")                       
-    name = "Build"
+object CleanTest : BuildType({    
+    id("Clean_Test_ID")                       
+    name = "Clean_Test_Name"
 
     vcs {
         root(DslContext.settingsRoot) 
