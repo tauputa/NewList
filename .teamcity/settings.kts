@@ -13,7 +13,7 @@ project {
     description = "Maven 3.6 java project forked from anewtodolist"
     buildType(CleanTest) 
     buildType(CleanPackage) 
-    buildTypeUnitTest() 
+    buildType(UnitTest) 
     buildType(IntegrationTest) 
 
     sequential{
