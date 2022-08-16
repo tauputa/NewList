@@ -13,6 +13,11 @@ project {
     description = "Maven 3.6 java project forked from anewtodolist"
     buildType(CleanTest) 
     buildType(CleanPackage) 
+
+    sequential{
+        buildType(CleanTest)
+        buildType(CleanPackage)
+    }
 }
 
 object CleanTest : BuildType({    
