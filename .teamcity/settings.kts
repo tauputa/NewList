@@ -13,6 +13,8 @@ project {
     description = "Maven 3.6 java project forked from anewtodolist"
     buildType(CleanTest) 
     buildType(CleanPackage) 
+    buildTypeUnitTest() 
+    buildType(IntegrationTest) 
 
     sequential{
         buildType(CleanTest)
@@ -36,6 +38,41 @@ object CleanTest : BuildType({
         }
     }
 
+})
+
+object IntegrationTest : BuildType({
+    id("Integration_Test_ID")
+    name = "Integration_Test_Name"
+
+    vcs {
+        root(DslContext.settingsRoot)
+    }
+
+    steps {
+        maven {
+            goals = "clean test"
+            runnerArgs = "-Dmaven.test.failure.ignore=true -Dtest=*.integration.*Test"
+            mavenVersion = bundled_3_6()
+        }
+    }
+
+})
+
+object UnitTest : BuildType({
+    id("Unit_Test_ID")
+    name = "Unit_Test_Name"
+
+    vcs {
+        root(DslContext.settingsRoot)
+    }
+
+    steps {
+        maven {
+            goals = "clean test"
+            runnerArgs = "-Dmaven.test.failure.ignore=true -Dtest=*.unit.*Test"
+            mavenVersion = bundled_3_6()
+        }
+    }
 })
 
 object CleanPackage : BuildType({
