@@ -6,10 +6,10 @@ version = "2021.1"
 
 project {                   
     description = "Maven 3.6 java project forked from anewtodolist"
-    buildType(NewList_Build) 
+    buildType(Sausage_Meat) 
 }
 
-object NewList_Build : BuildType({    
+object Sausage_Meat : BuildType({    
     id("Build")                       
     name = "Build"
 
