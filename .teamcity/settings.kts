@@ -1,6 +1,6 @@
 
-package _Self.buildTypes                                  
-import jetbrains.buildServer.configs.kotlin.v2019_2.BuildType
+//package _Self.buildTypes                                  
+//import jetbrains.buildServer.configs.kotlin.v2019_2.BuildType
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.maven
 import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
@@ -32,8 +32,8 @@ object Sausage_Meat : BuildType({
         vcs { 
         }
     }
-    requirements {
-        contains("teamcity.agent.name", "linux") 
-    }
+ //   requirements {
+ //       contains("teamcity.agent.name", "linux") 
+ //   }
 })
 
