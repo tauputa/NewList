@@ -10,11 +10,12 @@ project {
 
 project {                   
     description = "Maven 3.6 java project forked from anewtodolist"
-    buildType(AlistairTestProject_NewList_Build) 
+    buildType(NewList_Build) 
 }
 
 
-object Newist_Build : BuildType({    
+
+object NewList_Build : BuildType({    
     id("Build")                       
     name = "Build"
 
@@ -35,3 +36,4 @@ object Newist_Build : BuildType({
         }
     }
 })
+
