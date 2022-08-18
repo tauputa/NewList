@@ -5,37 +5,21 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
 version = "2021.1"
 
 project {                   
-    params {
-        // This makes it impossible to change the build settings through the UI
-        param("teamcity.ui.settings.readOnly", "true")
-    }
-
-    description = "Maven 3.6 java project forked from anewtodolist"
-    buildType(CleanTest) 
-
-    sequential{
-        buildType(CleanTest)
-    }
+    val bts = buildType(Maven("Build","clean compile","-Dmaven.test.failure.ignore=true"))
+    bts.buildTypes()		
 }
 
-object CleanTest : BuildType({    
-    id("Clean_Test_ID")                       
-    name = "Clean_Test_Name"
-
+class Maven(Name:String,Goal:String,RunnerArgs:String?=null) : BuildType({ 
+    id(Name)                              // use Name for Build_ID
+    this.name = Name                      // assign Name to this.name
     vcs {
-        root(DslContext.settingsRoot) 
+        root(DslContext.settingsRoot)
     }
-
     steps {
-        maven {                 
-            goals = "clean test" 
-            runnerArgs = "-Dmaven.test.failure.ignore=true" 
+        maven {
+            this.goals = Goal             // assign Goal to this.goals 
+            this.runnerArgs = RunnerArgs  // assign RunnerArgs to this.runnerArgs
             mavenVersion = bundled_3_6() 
         }
     }
-//    triggers {
-//        vcs {
-//       }
-//    }
 })
-
