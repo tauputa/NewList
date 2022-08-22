@@ -4,10 +4,16 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.project
 version = "2021.1"
 
 project {
-    subProject(MainProject)  // MainProject kts file must be named MainProject.kts
+    subProject(SubProjectOne)
+    subProject(SubProjectTwo)
 }
 
-object MainProject : Project({ // singleton object is unique sub project
-    name = "Main"
+object SubProjectOne : Project({ // singleton object is unique sub project
+    name = "SubProjectOne"
+    id(name.toId())
+})
+
+object SubProjectTwo : Project({ // singleton object is unique sub project
+    name = "SubProjectTwo"
     id(name.toId())
 })
