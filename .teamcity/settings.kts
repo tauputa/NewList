@@ -7,9 +7,3 @@ project {
     subProject(MainProject())  // MainProject kts file must be named MainProject.kts
 }
 
-class MainProject() : Project() {
-    init {
-        name = "Main"
-        id(name.toId())
-    }
-}
