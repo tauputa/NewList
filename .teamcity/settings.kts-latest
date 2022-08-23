@@ -5,12 +5,12 @@ version = "2021.1"
 
 project {
     subProject(SubProjectOne)
-    }
+    subProject(SubProjectTwo)
+}
 
 object SubProjectOne : Project({ // singleton object is unique sub project
     name = "SubProjectOne"
     id(name.toId())
-    subProject(SubProjectTwo)
 })
 
 object SubProjectTwo : Project({ // singleton object is unique sub project
