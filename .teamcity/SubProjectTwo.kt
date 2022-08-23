@@ -4,5 +4,4 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.project
 object SubProjectTwo : Project({ // singleton object is unique sub project
     name = "SubProjectTwo"
     id(name.toId())
-    buildType(Maven("SubProjectTwo","clean test","-Dmaven.test.failure.ignore=true -Dtest=*.integration.*Test"))
 })
