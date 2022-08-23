@@ -1,9 +1,8 @@
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.project
 
-class SubProjectTwo : Project() {   // derived class for SubProjectTwo must call base class constructor
-    init {
-        name = "SubProjectTwo"
-        id(name.toId())
-    }
-}
+object SubProjectTwo : Project({ // singleton object is unique sub project
+    name = "SubProjectTwo"
+    id(name.toId())
+    buildType(Maven("SubProjectTwo","clean test","-Dmaven.test.failure.ignore=true -Dtest=*.integration.*Test"))
+})
