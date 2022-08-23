@@ -5,6 +5,6 @@ version = "2021.1"
 
 project {
     subProject(SubProjectOne())     // instantiate SubProjectOne class with default constructor
-    }
 }
+
 
